@@ -1,6 +1,6 @@
 package com.linecomparisonproblem;
 
-public class Length {
+public class Length implements Comparable<Length>{
 
 	private double x1;
 	private double y1;
@@ -30,6 +30,16 @@ public class Length {
 		if(other.calculateLength() != this.calculateLength())
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Length that) {
+		if(this.calculateLength() == that.calculateLength())
+			return 0;
+		else if(this.calculateLength() > that.calculateLength())
+			return 1;
+		else
+			return -1;
 	}
 
 }

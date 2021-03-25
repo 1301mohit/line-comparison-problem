@@ -18,4 +18,18 @@ public class Length {
 		return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Length other = (Length) obj;
+		if(other.calculateLength() != this.calculateLength())
+			return false;
+		return true;
+	}
+
 }

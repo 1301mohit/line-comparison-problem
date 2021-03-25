@@ -1,13 +1,13 @@
 package com.linecomparisonproblem;
 
-public class Length {
+public class Line implements Comparable<Line>{
 
 	private double x1;
 	private double y1;
 	private double x2;
 	private double y2;
 
-	public Length(double x1, double y1, double x2, double y2) {
+	public Line(double x1, double y1, double x2, double y2) {
 		this.x1 = x1;
 		this.y1 = y1;
 		this.x2 = x2;
@@ -26,10 +26,20 @@ public class Length {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Length other = (Length) obj;
+		Line other = (Line) obj;
 		if(other.calculateLength() != this.calculateLength())
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Line that) {
+		if(this.calculateLength() == that.calculateLength())
+			return 0;
+		else if(this.calculateLength() > that.calculateLength())
+			return 1;
+		else
+			return -1;
 	}
 
 }
